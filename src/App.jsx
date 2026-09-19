@@ -11,6 +11,8 @@ import stop from './song/stopplayin.mp3';
 import bg from './videos/car.mp4';
 import git from './images/git2.png';
 
+const SOL_ADDRESS = 'H3ZWUtA33KZ4yRhM3LPnMpRdsPDW51Gs6vYcW6z3DUYY';
+
 function App() {
   const [viewCount, setViewCount] = useState(3242);
   const [currentTime, setCurrentTime] = useState(0);
@@ -19,8 +21,7 @@ function App() {
   const [showOverlay, setShowOverlay] = useState(true);
   const [isOverlayClicked, setIsOverlayClicked] = useState(false);
   const [copyStatus, setCopyStatus] = useState('');
-  const [cssLabel, setCssLabel] = useState('Copy BTC Address');
-  const [cssLabel1, setCssLabel1] = useState('Copy LTC Address');
+  const [solLabel, setSolLabel] = useState('Copy SOL Address');
   const [bio, setBio] = useState('');
   const [entered, setEntered] = useState(false); // State for animation
 
@@ -91,27 +92,14 @@ function App() {
     };
   }, [isPlaying, isOverlayClicked, maxTime]);
 
-  const handleCopyAddress = (address, label) => {
-    navigator.clipboard.writeText(address)
+  const handleCopySol = () => {
+    navigator.clipboard.writeText(SOL_ADDRESS)
       .then(() => {
         setCopyStatus('Copied');
-        setCssLabel('Copied');
+        setSolLabel('Copied');
         setTimeout(() => {
           setCopyStatus('');
-          setCssLabel('Copy BTC Address');
-        }, 2000);
-      })
-      .catch(error => console.error('Error copying address to clipboard:', error));
-  };
-  
-  const handleCopyAddress1 = (address, label) => {
-    navigator.clipboard.writeText(address)
-      .then(() => {
-        setCopyStatus('Copied');
-        setCssLabel1('Copied');
-        setTimeout(() => {
-          setCopyStatus('');
-          setCssLabel1('Copy LTC Address');
+          setSolLabel('Copy SOL Address');
         }, 2000);
       })
       .catch(error => console.error('Error copying address to clipboard:', error));
@@ -196,18 +184,11 @@ function App() {
         </div>
         <div className='div2'></div>
         <button
-          className='button2'
-          onClick={() => handleCopyAddress1('ltc1qwu5kth29x3ev63fuex4ln873kdwdxdnvw0fvdq', 'LTC Address')}
-          data-label={cssLabel1}
+          className='button-sol'
+          onClick={handleCopySol}
+          data-label={solLabel}
         >
-          LTC
-        </button>
-        <button
-          className='button1'
-          onClick={() => handleCopyAddress('bc1qmdde26zln58kprcz2fxf7980ad9jfnpxa7ev4p', 'BTC Address')}
-          data-label={cssLabel}
-        >
-          BTC
+          SOL
         </button>
       </div>
     </div>

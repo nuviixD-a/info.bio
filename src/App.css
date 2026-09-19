@@ -267,7 +267,7 @@
 
 }
 
-.button1 {
+.button-sol {
     color: white;
     text-decoration: none;
     text-align: center; 
@@ -303,27 +303,7 @@
   
   
 
-.button2 {
-color: white;
-text-align: center;
-text-decoration: none;
-position: fixed;
-left: 6%;
-top: 525px;
-background-color: #00000000;
-padding: 5px;
-width: 450px;
-height: 35px;
-display: flex;
-border-radius: 10px;
-justify-content: center;
-align-items: center;
-font-size: 17px;
-font-family: 'Open Sans', sans-serif;
-text-decoration: bold;
-}
-
-.button1:hover::before {
+.button-sol:hover::before {
     content: attr(data-label);
     position: absolute;
     background-color: #0a0a0a;
@@ -331,23 +311,6 @@ text-decoration: bold;
     padding: 5px;
     border-radius: 5px;
     top: 30px;
-    left: 38%;
-    transform: translateX(-10%);
-    font-size: 14px;
-    white-space: nowrap;
-    width: 130px;
-    text-align: center;
-    font-family: 'Noto Sans', sans-serif;
-  }
-  
-  .button2:hover::before {
-    content: attr(data-label);
-    position: absolute;
-    background-color: #0a0a0a;
-    color: #ffffff;
-    padding: 5px;
-    border-radius: 5px;
-    top: 33px;
     left: 38%;
     transform: translateX(-10%);
     font-size: 14px;
